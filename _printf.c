@@ -4,56 +4,51 @@
 #include <stdio.h>
 int printcharacter(va_list args);
 int printstring(va_list args);
-int (*check_character_string(const char *next, int A))(va_list)
-{
-	int j;
-	print_t options[] = {
-		{"c", printcharacter},
-		{"s", printstring},
-		{"d", printinteger},
-		{NULL, NULL}};
-	for (j = 0; options[j].type != '\0'; j++)
-	{
-		if (options[j].type[0] == next[A])
-			return ((options[j].f));
-	}
-	return (NULL);
-}
+int printinteger(va_list args);
+
 int _printf(const char *format, ...)
 {
 	va_list args;
-	unsigned int i = 0;
-	unsigned int length = 0;
+	int i = 0;
+	int j;
+	int length = 0;
+	print_t print[] = {
+		{"c", printcharacter},
+		{"s", printstring},
+		{"i", printinteger},
+		{NULL, NULL}};
 	va_start(args, format);
-	if ((!format) || (format[0] == '%' && format[1] == '\0'))
+	if ((format) == NULL || (format[0] == '%' && format[1] == '\0'))
 		return (-1);
-	for (i = 0; format[i] != '\0'; i++)
+	while(format[i] != '\0')
 	{
-		if (format[i] == '%')
+		if (format[i] == '%' && format[i + 1] != '%')
 		{
-			if (format[i + 1] == '%')
+			j = 0;
+			while (print[j].type != NULL)
 			{
-				_putchar('%');
-				i = i + 1;
-				length++;
+				if (format[i + 1] == print[j].type)
+				{
+					length = length + print[j].f(args);
+					i++;
+				}
+				j++;
 			}
-			else if (check_character_string(format, i + 1) != '\0')
-			{
-				length += check_character_string(format, i + 1)(args);
-				i = i + 1;
-			}
-			else
-			{
-				_putchar(format[i]);
-				length++;
-			}
+		}
+		else if (format[i] == '%' && format[i + 1] == '%')
+
+		{
+			_putchar('%');
+			i++;
+			length = length + 1;
 		}
 		else
-		{
-			_putchar(format[i]);
-			length++;
+		{ _putchar(format[i]);
+		i++;
 		}
+		i++;
 	}
+
 	va_end(args);
 	return (length);
 }
@@ -92,7 +87,7 @@ int printcharacter(va_list args)
  */
 int printinteger(va_list args)
 {
-	int num,
+	int num = 0;
 		num = va_arg(args, int);
 	if (num / 10 != 0)
 	{
@@ -126,12 +121,12 @@ int printfloat(va_list args)
 	n = va_arg(args, double);
 	if (n < 0)
 	{
-		putchar('-');
+		_putchar('-');
 		n = -n;
 	}
 	if (n / 10)
 	{
-		print(n / 10);
+		_putchar(n / 10);
 	}
 	return (EXIT_SUCCESS);
 }
