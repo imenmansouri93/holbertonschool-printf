@@ -11,7 +11,7 @@
 typedef struct print
 {
     char *type;
-    void (*f)(va_list args);
+    int (*f)(va_list args);
 }print_t;
 
 int _putchar(char c);
