@@ -27,7 +27,7 @@ int _printf(const char *format, ...)
 			j = 0;
 			while (print[j].type != NULL)
 			{
-				if (format[i + 1] == print[j].type)
+				if (*format == *(print[j].type))
 				{
 					length = length + print[j].f(args);
 					i++;
