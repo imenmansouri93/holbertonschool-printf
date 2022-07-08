@@ -9,48 +9,45 @@ int printinteger(va_list args);
 int _printf(const char *format, ...)
 {
 	va_list args;
-	int i = 0;
-	int j;
-	int length = 0;
-	print_t print[] = {
-		{"c", printcharacter},
-		{"s", printstring},
-		{"i", printinteger},
-		{NULL, NULL}};
-	va_start(args, format);
-	if ((format) == NULL || (format[0] == '%' && format[1] == '\0'))
-		return (-1);
-	while(format[i] != '\0')
+	
+va_start(args, format);
+	while (*format)
 	{
-		if (format[i] == '%' && format[i + 1] != '%')
+		if (*format !='%')
 		{
-			j = 0;
-			while (print[j].type != NULL)
-			{
-				if (*format == *(print[j].type))
-				{
-					length = length + print[j].f(args);
-					i++;
-				}
-				j++;
-			}
-		}
-		else if (format[i] == '%' && format[i + 1] == '%')
-
-		{
-			_putchar('%');
-			i++;
-			length = length + 1;
+			putchar(*format);
+			format++;
 		}
 		else
-		{ _putchar(format[i]);
-		i++;
+		{
+			format++;
+			switch (*format)
+			{
+			case'c':
+				
+				printcharacter(args);
+				format++;
+				break;
+			case'd':
+				
+				printinteger(args);
+				format++;
+				break;
+			case's':
+				printstring(args);
+				format++;
+				break;
+			
+			default:
+				format--;
+				putchar(*format);
+				format++;
+				break;
+			}
 		}
-		i++;
 	}
-
-	va_end(args);
-	return (length);
+	
+return(1);
 }
 
 /**
@@ -63,13 +60,13 @@ int printstring(va_list args)
 	str = va_arg(args, char *);
 	if (str == NULL)
 	{
-		str = "(null)";
+		str = "null";
 	}
-	while (*str)
-	{
-		putchar(*str);
+	while (str[i])
+		{
+			putchar(str[i]);
 		i++;
-	}
+		}
 	return (i);
 }
 /**
@@ -88,7 +85,7 @@ int printcharacter(va_list args)
 int printinteger(va_list args)
 {
 	int num = 0;
-		num = va_arg(args, int);
+	num = va_arg(args, int);
 	if (num / 10 != 0)
 	{
 		if (num > 0)
