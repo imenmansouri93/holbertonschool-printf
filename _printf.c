@@ -33,9 +33,8 @@ if (*format == print[i].type[0])
 return (print[i].f)(args);
 }else if (*format != print[i].type[0])
 {
-_putchar (*(format));
-count+=2;
-}else if (*format == '%' && *(format + 1)=='%')
+return(-1);
+}else if (*format == '%' && *(format + 1) == '%')
 {
 format++;
 _putchar('%');
