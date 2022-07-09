@@ -5,11 +5,11 @@
 int printcharacter(va_list args);
 int printstring(va_list args);
 int printinteger(va_list args);
-
+int printfloat(va_list args);
 int _printf(const char *format, ...)
 {
-int i;
-int count = 0;
+unsigned int i;
+unsigned int count = 0;
 va_list(args);
 va_start(args, format);
 if (!*format)
@@ -18,9 +18,11 @@ return(-1);
 }
 while (*format)
 {
-	print_t print[] = {
+print_t print[] = {
 {"c", printcharacter},
 {"s", printstring},
+{"i", printinteger},
+{"d", printfloat },
 {NULL, NULL}
 };
 if (*format == '%' && *(format+1)!='%' )
@@ -33,15 +35,17 @@ if (*format == print[i].type[0])
 return (print[i].f)(args);
 }else if (*format != print[i].type[0])
 {
-return(-1);
+_putchar (*(format));
+count+=2;
+}
+}
 }else if (*format == '%' && *(format + 1) == '%')
 {
 format++;
 _putchar('%');
 count++;
 }
-}
-}else 
+else 
 {
 _putchar(*format);
 count++;
@@ -109,7 +113,7 @@ int printinteger(va_list args)
 		_putchar('-');
 		_putchar(-num % 10 + '0');
 	}
-	return (EXIT_SUCCESS);
+	return (1);
 }
 /**
  *
@@ -127,5 +131,5 @@ int printfloat(va_list args)
 	{
 		_putchar(n / 10);
 	}
-	return (EXIT_SUCCESS);
+	return (1);
 }
