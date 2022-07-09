@@ -15,7 +15,7 @@ int _printf(const char *format, ...)
 		{
 			format++;
 			function = get_function(format);
-			if (format == NULL)
+			if (!format)
 			{
 				return (-1);
 			}
