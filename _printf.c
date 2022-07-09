@@ -8,46 +8,49 @@ int printinteger(va_list args);
 
 int _printf(const char *format, ...)
 {
-	va_list args;
-	
+int i;
+int count = 0;
+va_list(args);
 va_start(args, format);
-	while (*format)
-	{
-		if (*format !='%')
-		{
-			putchar(*format);
-			format++;
-		}
-		else
-		{
-			format++;
-			switch (*format)
-			{
-			case'c':
-				
-				printcharacter(args);
-				format++;
-				break;
-			case'd':
-				
-				printinteger(args);
-				format++;
-				break;
-			case's':
-				printstring(args);
-				format++;
-				break;
-			
-			default:
-				format--;
-				putchar(*format);
-				format++;
-				break;
-			}
-		}
-	}
-	
-return(1);
+if (!*format)
+{
+return(-1);
+}
+while (*format)
+{
+	print_t print[] = {
+{"c", printcharacter},
+{"s", printstring},
+{NULL, NULL}
+};
+if (*format == '%' && *(format+1)!='%' )
+{
+format++;
+for (i = 0; print[i].type; i++)
+{
+if (*format == print[i].type[0])
+{
+return (print[i].f)(args);
+}else if (*format != print[i].type[0])
+{
+_putchar (*(format));
+count+=2;
+}else if (*format == '%' && *(format + 1)=='%')
+{
+format++;
+_putchar('%');
+count++;
+}
+}
+}else 
+{
+_putchar(*format);
+count++;
+}
+format++;
+}
+va_end(args);
+return(count);
 }
 
 /**
