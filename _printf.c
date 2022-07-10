@@ -23,7 +23,7 @@ int _printf(const char *format, ...)
 			{
 				count = count + fun;
 				i = i + 2;
-				break;
+				continue;
 			}
 			if (*(format + (i + 1)) == '\0')
 			{
