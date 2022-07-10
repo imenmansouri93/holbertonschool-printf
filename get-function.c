@@ -6,7 +6,7 @@
  * @li: va_list
  * Return: int
  */
-int get_function(const char s, va_list li)
+int get_function(const char s, va_list args)
 {
 	int i = 0, count = 0;
 	print_t print[] = {
@@ -19,7 +19,7 @@ int get_function(const char s, va_list li)
 	{
 		if (print[i].c == s)
 		{
-			count = count + print[i].f(li);
+			count = count + print[i].f(args);
 			return (count);
 		}
 		i++;
