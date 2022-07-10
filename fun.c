@@ -19,9 +19,9 @@ int printstring(va_list args)
 		str = "(null)";
 	}
 	if (str[i] == '\0')
-	{ 
+	{
 		i++;
-		return(1);
+		return (2);
 
 	}
 	while (str[i])
