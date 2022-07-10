@@ -19,7 +19,7 @@ int printstring(va_list args)
 		_putchar(str[i]);
 		i++;
 	}
-	return (1);
+	return (i);
 }
 /**
  * printchracter
