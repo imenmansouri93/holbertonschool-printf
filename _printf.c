@@ -4,7 +4,7 @@
 #include <stdio.h>
 /**
  * _printf - function like printf
- * @format: the pointer of char 
+ * @format: the pointer of char
  * Return: 1
  */
 int _printf(const char *format, ...)
@@ -21,7 +21,7 @@ int _printf(const char *format, ...)
 {           _putchar (*(format + i));
 			count++;
 		}
-		if (*(format + i) == '%')
+		if (format[i] == '%')
 		{
 			fun = get_function(format[i + 1], args);
 			if (fun != 0)
