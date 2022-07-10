@@ -2,7 +2,7 @@
 #include <stdarg.h>
 int get_function(const char s, va_list li)
 {
-	int i = 0,count = 0;
+	int i = 0,
 	print_t print[] = {
 		{'c', printcharacter},
 		{'s', printstring}
@@ -12,8 +12,7 @@ int get_function(const char s, va_list li)
 	{
 		if (print[i].c == s)
 		{
-			count = count + print[i].f(li);
-			return(count);
+	      return(print[i].f(li));
 		}
 		i++;
 	}
