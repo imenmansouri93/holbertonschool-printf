@@ -96,8 +96,10 @@ int n = 0, count = 0;
 char *str;
 str = va_arg(args, char *);
 n = strlen(str) - 1;
-for (int i = 0; i < n / 2; i++)
-{swap(str[i], str[n - i - 1]);
+while (n >= 0)
+{
+_putchar (*(str + n));
+n--;
 count ++;
 }
 return(count);
