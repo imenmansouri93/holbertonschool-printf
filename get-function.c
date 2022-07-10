@@ -3,7 +3,7 @@
 /**
  * get_function - fun
  * @s: char to define fun
- * @li: va_list
+ * @args: va_list
  * Return: int
  */
 int get_function(const char s, va_list args)
