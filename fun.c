@@ -18,6 +18,12 @@ int printstring(va_list args)
 	{
 		str = "(null)";
 	}
+	if (str[i] == '\0')
+	{ 
+		i++;
+		return(1);
+
+	}
 	while (str[i])
 	{
 		_putchar(str[i]);
