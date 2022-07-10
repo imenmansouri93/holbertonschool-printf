@@ -89,3 +89,16 @@ int printint(va_list args)
 	}
 	return (count);
 }
+int reverseStr(va_list args)
+
+{
+int n = 0, count = 0;
+char *str;
+str = va_arg(args, char *);
+n = strlen(str) - 1;
+for (int i = 0; i < n / 2; i++)
+{swap(str[i], str[n - i - 1]);
+count ++;
+}
+return(count);
+}

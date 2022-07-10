@@ -14,6 +14,7 @@ int get_function(const char s, va_list args)
 		{'s', printstring},
 		{'d', printint},
 		{'i', printint},
+        {'R', reverseStr},
 		{'%', printpercent}};
 	while (print[i].c != 0)
 	{

@@ -19,5 +19,5 @@ Functions produces output according to a format.
 .SH RETURN VALUES
 On success, return the number of bytes printed(exucluding the null byte). On failure, return  -1
 .SH AUTHOR
-Majdi , Imen Mansouri
-.SHH This is aproject for Holberthon School
+Majdi Aribi and Imen Mansouri
+.SH This is aproject for Holberthon School
