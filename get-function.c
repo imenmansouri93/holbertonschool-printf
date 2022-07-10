@@ -6,6 +6,7 @@ int get_function(const char s, va_list li)
 	print_t print[] = {
 		{'c', printcharacter},
 		{'s', printstring}
+       
 	};
 	while(print[i].c != 0)
 	{

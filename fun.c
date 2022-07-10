@@ -25,10 +25,15 @@ int printstring(va_list args)
  * printchracter
  */
 int printcharacter(va_list args)
-{    
-	
+{
+
 	_putchar(va_arg(args, int));
 
 	return (1);
 }
+/** unsigned int to binnary "%b"*/
+
+
+
+
 
