@@ -1,16 +1,17 @@
 #include "main.h"
-int get_function(const char c, va_list li)
+#include <stdarg.h>
+int get_function(const char s, va_list li)
 {
 	int i = 0,count = 0;
 	print_t print[] = {
 		{'c', printcharacter},
 		{'s', printstring}
 	};
-	while(li[i].c != 0)
+	while(print[i].c != 0)
 	{
-		if (li[i].c == c)
+		if (print[i].c == s)
 		{
-			count = count + li[i].f(li);
+			count = count + print[i].f(li);
 			return(count);
 		}
 		i++;

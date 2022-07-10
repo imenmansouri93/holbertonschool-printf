@@ -31,6 +31,4 @@ int printcharacter(va_list args)
 
 	return (1);
 }
-/**
- *
- *
+
