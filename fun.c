@@ -4,14 +4,15 @@
 #include <stdio.h>
 /**
  * printstring - print a string
- * @args: the String to print 
+ * @args: the String to print
  *
- * Return: i int 
+ * Return: i int
  */
 int printstring(va_list args)
 {
 	char *str;
 	int i = 0;
+
 	str = va_arg(args, char *);
 	if (str == NULL)
 	{
@@ -26,9 +27,9 @@ int printstring(va_list args)
 }
 /**
  * printcharacter - print a char
- * @args: the char a print 
+ * @args: the char a print
  *
- * Return: i int 
+ * Return: i int
  */
 int printcharacter(va_list args)
 {
@@ -39,19 +40,46 @@ int printcharacter(va_list args)
 }
 /**
  * printpercent - print percent
- * @args: argument type va_list 
+ * @args: argument type va_list
  *
- * Return: i int 
+ * Return: i int
  */
 int printpercent(va_list args)
-{    
+{
 	(void)args;
 	_putchar('%');
-/** unsigned int to binnary "%b"*/
-
-
-
-
-
 	return (1);
+}
+/**
+ * printcharacter - print a char
+ * @args: the char a print
+ *
+ * Return: i int
+ */
+int printint(va_list args)
+{
+	int count = 0, rest = 1, n;
+	unsigned int x;
+
+	n = va_arg(args, int);
+	x = n;
+
+	if (n < 0)
+	{
+		_putchar('-');
+		x = -x;
+		++count;
+	}
+	while ((x / rest) > 9)
+	{
+		rest = rest * 10;
+	}
+	while (rest > 0)
+	{
+		_putchar(x / rest + '0');
+		x = (x % rest);
+		rest = rest / 10;
+		++count;
+	}
+	return (count);
 }

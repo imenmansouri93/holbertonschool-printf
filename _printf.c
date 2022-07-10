@@ -10,24 +10,24 @@ int _printf(const char *format, ...)
 	if (!format || (format[0] == '%' && format[1] == '\0'))
 	return (-1);
 	va_start(args, format);
-	while (*(format + i) && format)
+	while (format[i] && format)
 	{
-		if (*(format + i) != '%')
+		if (format[i] != '%')
 {           _putchar (*(format + i));
 			count++;
 		}
 		if (*(format + i) == '%')
 		{
-			fun = get_function(*(format + (i + 1)), args);
+			fun = get_function(format[i + 1], args);
 			if (fun != 0)
 			{
 				count = count + fun;
 				i = i + 2;
 				continue;
 			}
-			if (*(format + (i + 1)) == '\0')
+			if (format[i] == '\0')
 			{
-				_putchar(*(format + i));
+				_putchar(format[i]);
 				count++;
 			}
 		}
