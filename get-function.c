@@ -1,5 +1,11 @@
 #include "main.h"
 #include <stdarg.h>
+/**
+ * get_function - fun
+ * @s: char to define fun
+ * @li: va_list
+ * Return: int
+ */
 int get_function(const char s, va_list li)
 {
 	int i = 0, count = 0;

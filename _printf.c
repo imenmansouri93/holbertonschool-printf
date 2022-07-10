@@ -2,6 +2,11 @@
 #include <stdlib.h>
 #include <stdarg.h>
 #include <stdio.h>
+/**
+ * _printf - function like printf
+ * @format: the pointer of char 
+ * Return: 1
+ */
 int _printf(const char *format, ...)
 {
 	int count = 0, fun = 0, i = 0;
@@ -36,4 +41,3 @@ int _printf(const char *format, ...)
 	va_end(args);
 	return (count);
 }
-	

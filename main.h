@@ -5,16 +5,13 @@
 #include <unistd.h>
 #include <string.h>
 
-/**
- * 
- *
- */
+
 
 typedef struct print
 {
 	char c;
 	int (*f)(va_list args);
-}print_t;
+} print_t;
 int _putchar(char c);
 int get_function(const char c, va_list li);
 int _printf(const char *format, ...);

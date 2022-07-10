@@ -51,7 +51,7 @@ int printpercent(va_list args)
 	return (1);
 }
 /**
- * printcharacter - print a char
+ * printint - print a int
  * @args: the char a print
  *
  * Return: i int
