@@ -24,7 +24,7 @@ int get_function(const char s, va_list args)
 		}
 		i++;
 	}
-	if(print[0].c != s)
+	if (print[0].c != s)
 	{
 		_putchar('%');
 		_putchar(s);
