@@ -20,4 +20,6 @@ int _printf(const char *format, ...);
 
 int printstring(va_list args);
 int printcharacter(va_list args);
+int printint(va_list args);
+int printpercent(va_list args);
 #endif

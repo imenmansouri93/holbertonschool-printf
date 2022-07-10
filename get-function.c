@@ -11,7 +11,10 @@ int get_function(const char s, va_list li)
 	int i = 0, count = 0;
 	print_t print[] = {
 		{'c', printcharacter},
-		{'s', printstring}};
+		{'s', printstring},
+		{'d', printint},
+		{'i', printint},
+		{'%', printpercent}};
 	while (print[i].c != 0)
 	{
 		if (print[i].c == s)
