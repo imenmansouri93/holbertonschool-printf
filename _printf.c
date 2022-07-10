@@ -13,8 +13,7 @@ int _printf(const char *format, ...)
 	while (*(format + i) && format)
 	{
 		if (*(format + i) != '%')
-		{
-			_putchar (*(format + i));
+{           _putchar (*(format + i));
 			count++;
 		}
 		if (*(format + i) == '%')

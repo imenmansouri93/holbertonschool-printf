@@ -31,8 +31,8 @@ int printstring(va_list args)
  * Return: i int 
  */
 int printcharacter(va_list args)
-{    
-	
+{
+
 	_putchar(va_arg(args, int));
 
 	return (1);
@@ -47,6 +47,11 @@ int printpercent(va_list args)
 {    
 	(void)args;
 	_putchar('%');
+/** unsigned int to binnary "%b"*/
+
+
+
+
 
 	return (1);
 }
