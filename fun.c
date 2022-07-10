@@ -21,7 +21,7 @@ int printstring(va_list args)
 	if (str[i] == '\0')
 	{
 		i++;
-		return (0);
+		return (-1);
 
 	}
 	while (str[i])
