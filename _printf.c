@@ -4,45 +4,40 @@
 #include <stdio.h>
 int _printf(const char *format, ...)
 {
-	int count;
-	int (*function)(va_list);
-	va_list (args);
-	va_start(args, format);
+	int count = 0, fun = 0, i = 0;
+	va_list args;
 
-	while (*format)
+	if (!format || (format[0] == '%' && format[1] == '\0'))
+	return (-1);
+	va_start(args, format);
+	while (*(format + i) && format)
 	{
-		if (*format == '%' && *(format + 1) != '%')
+		if (*(format + i) != '%')
 		{
-			format++;
-			function = get_function(format);
-			if (!format)
-			{
-				return (-1);
-			}
-			else if (function == NULL)
-			{
-				_putchar(*(format - 1));
-				_putchar(*format);
-				count += 1;
-			}
-		}
-		else if (*format == '%' && *(format + 1) == '%')
-		{
-			format++;
-			_putchar('%');
+			_putchar (*(format + i));
 			count++;
 		}
-		else
+		if (*(format + i) == '%')
 		{
-			_putchar(*format);
-			count++;
+			fun = get_function(*(format + (i + 1)), args);
+			if (fun != 0)
+			{
+				count = count + fun;
+				i = i + 2;
+				continue;
+			}
+			if (*(format + (i + 1)) == '\0')
+			{
+				_putchar(*(format + i));
+				count++;
+			}
 		}
-		format++;
+			i++;
 	}
 	va_end(args);
 	return (count);
 }
-
+	
 /**
  * printstring
  */

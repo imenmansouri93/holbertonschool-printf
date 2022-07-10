@@ -1,15 +1,19 @@
 #include "main.h"
-int(*get_function(const char *fmt))(va_list)
+int get_function(const char c, va_list li)
 {
-    int i;
-    print_t print[] = {
-        {"c", printcharacter},
-        {"s", printstring},
-        {NULL, NULL}};
-    for (i = 0; print[i].type; i++)
-     if (*fmt == print[i].type[0])
-        {
-            return (print[i].f);
-        }
-        return (NULL);
+	int i = 0,count = 0;
+	print_t print[] = {
+		{'c', printcharacter},
+		{'s', printstring}
+	};
+	while(li[i].c != 0)
+	{
+		if (li[i].c == c)
+		{
+			count = count + li[i].f(li);
+			return(count);
+		}
+		i++;
+	}
+	return(0);
 }
