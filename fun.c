@@ -89,6 +89,12 @@ int printint(va_list args)
 	}
 	return (count);
 }
+/**
+ * reverseStr - prints the reversed string
+ * @args: the char a print
+ *
+ * Return: i int
+ */
 int reverseStr(va_list args)
 
 {
