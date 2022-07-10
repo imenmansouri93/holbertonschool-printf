@@ -3,7 +3,10 @@
 #include <stdarg.h>
 #include <stdio.h>
 /**
- * printstring
+ * printstring - print a string
+ * @args: the String to print 
+ *
+ * Return: i int 
  */
 int printstring(va_list args)
 {
@@ -22,7 +25,10 @@ int printstring(va_list args)
 	return (i);
 }
 /**
- * printchracter
+ * printcharacter - print a char
+ * @args: the char a print 
+ *
+ * Return: i int 
  */
 int printcharacter(va_list args)
 {    
@@ -31,4 +37,16 @@ int printcharacter(va_list args)
 
 	return (1);
 }
+/**
+ * printpercent - print percent
+ * @args: argument type va_list 
+ *
+ * Return: i int 
+ */
+int printpercent(va_list args)
+{    
+	(void)args;
+	_putchar('%');
 
+	return (1);
+}
