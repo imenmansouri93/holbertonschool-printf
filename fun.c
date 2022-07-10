@@ -25,9 +25,9 @@ int printstring(va_list args)
  * printchracter
  */
 int printcharacter(va_list args)
-{    int x = 0;
-	x = va_arg(args, int);
-	_putchar(x);
+{    
+	
+	_putchar(va_arg(args, int));
 
 	return (1);
 }
