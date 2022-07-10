@@ -13,8 +13,8 @@ int get_function(const char s, va_list args)
 		{'c', printcharacter},
 		{'s', printstring},
 		{'d', printint},
-		{'i', printint},
-		{'%', printpercent}};
+		{'i', printint}
+		};
 	while (print[i].c != 0)
 	{
 		if (print[i].c == s)
