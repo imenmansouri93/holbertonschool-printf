@@ -33,7 +33,7 @@ output: 8
 ReverseString: _printf("%r\n, Holberthon);
 output: nohtrebloH
 ## Declaration int _printf(const char *format, ...)
-_printf("my %s" is %d", "number" 1024)
+_printf("my %s is %d", "number" 1024)
 ## Authors
 
 - [@majdideveloper](https://github.com/majdideveloper)
